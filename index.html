@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CNA Exam ProMaster | Simulador Profesional</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container fade-in">
+        <header>
+            <div style="display: flex; justify-content: flex-end; margin-bottom: 1rem;" id="lang-selector-container">
+                <!-- Lang Selector will be injected by script -->
+            </div>
+            <h1 class="title-main">CNA Exam <span style="color: var(--primary)">ProMaster</span></h1>
+            <p class="subtitle">Simulador de Certificación ProMetric - Nivel de Dificultad: Experto</p>
+        </header>
+
+        <section class="info-band"
+            style="background: #eff6ff; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border: 1px solid #dbeafe;">
+            <p><strong>Meta:</strong> 80% o más para aprobar (Estilo ProMetric). <br>
+                360 preguntas bilingües distribuidas en 6 simulacros mixtos.</p>
+        </section>
+
+        <div class="battery-grid" id="battery-list">
+            <!-- Battery 1 -->
+            <div class="battery-card" onclick="startExam(0)">
+                <div class="battery-icon">🏥</div>
+                <h3>Simulacro Mixto 1</h3>
+                <p>Evaluación general: Higiene, seguridad y signos vitales.</p>
+                <div class="battery-stats">
+                    <span>60 Preguntas</span>
+                    <span id="score-0">--%</span>
+                </div>
+            </div>
+
+            <!-- Battery 2 -->
+            <div class="battery-card" onclick="startExam(1)">
+                <div class="battery-icon">🫀</div>
+                <h3>Simulacro Mixto 2</h3>
+                <p>Contenido variado: Emergencias, infecciones y ética.</p>
+                <div class="battery-stats">
+                    <span>60 Preguntas</span>
+                    <span id="score-1">--%</span>
+                </div>
+            </div>
+
+            <!-- Battery 3 -->
+            <div class="battery-card" onclick="startExam(2)">
+                <div class="battery-icon">👵</div>
+                <h3>Simulacro Mixto 3</h3>
+                <p>Repaso integral: Geriatría, movilidad y derechos.</p>
+                <div class="battery-stats">
+                    <span>60 Preguntas</span>
+                    <span id="score-2">--%</span>
+                </div>
+            </div>
+
+            <!-- Battery 4 -->
+            <div class="battery-card" onclick="startExam(3)">
+                <div class="battery-icon">🧘</div>
+                <h3>Simulacro Mixto 4</h3>
+                <p>Mezcla de temas: Salud mental, nutrición y leyes.</p>
+                <div class="battery-stats">
+                    <span>60 Preguntas</span>
+                    <span id="score-3">--%</span>
+                </div>
+            </div>
+
+            <!-- Battery 5 -->
+            <div class="battery-card" onclick="startExam(4)">
+                <div class="battery-icon">📜</div>
+                <h3>Simulacro Mixto 5</h3>
+                <p>Evaluación cruzada: Protocolos legales y cuidados básicos.</p>
+                <div class="battery-stats">
+                    <span>60 Preguntas</span>
+                    <span id="score-4">--%</span>
+                </div>
+            </div>
+
+            <!-- Battery 6 -->
+            <div class="battery-card" onclick="startExam(5)">
+                <div class="battery-icon">🎓</div>
+                <h3>Simulacro Mixto 6 (Final)</h3>
+                <p>Examen de repaso total con todos los dominios ProMetric.</p>
+                <div class="battery-stats">
+                    <span>60 Preguntas</span>
+                    <span id="score-5">--%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentLang = localStorage.getItem('cna_lang') || 'en';
+
+        function startExam(id) {
+            localStorage.setItem('selectedBattery', id);
+            window.location.href = 'exam.html';
+        }
+
+        function setupLangSelector() {
+            const container = document.getElementById('lang-selector-container');
+            container.innerHTML = '';
+
+            const langs = [
+                { id: 'en', label: 'EN' },
+                { id: 'es', label: 'ES' },
+                { id: 'bi', label: 'Bi' }
+            ];
+
+            langs.forEach(l => {
+                const btn = document.createElement('button');
+                btn.textContent = l.label;
+                btn.className = `btn btn-sm ${currentLang === l.id ? 'btn-primary' : 'btn-outline'}`;
+                btn.style = 'padding: 4px 12px; font-size: 0.8rem; margin-left: 5px;';
+                if (currentLang === l.id) {
+                    btn.style.background = 'var(--primary)';
+                    btn.style.color = 'white';
+                }
+
+                btn.onclick = () => {
+                    currentLang = l.id;
+                    localStorage.setItem('cna_lang', l.id);
+                    setupLangSelector();
+                    updateUIStrings();
+                };
+                container.appendChild(btn);
+            });
+        }
+
+        function updateUIStrings() {
+            const title = document.querySelector('.title-main');
+            const subtitle = document.querySelector('.subtitle');
+
+            if (currentLang === 'es' || currentLang === 'bi') {
+                subtitle.textContent = 'Simulador de Certificación ProMetric - Nivel de Dificultad: Experto';
+            } else {
+                subtitle.textContent = 'ProMetric Certification Simulator - Difficulty Level: Expert';
+            }
+        }
+
+        // Load scores from localStorage
+        window.onload = () => {
+            setupLangSelector();
+            updateUIStrings();
+            const scores = JSON.parse(localStorage.getItem('cna_scores') || '{}');
+            Object.keys(scores).forEach(id => {
+                const el = document.getElementById(`score-${id}`);
+                if (el) el.textContent = scores[id] + '%';
+            });
+        };
+    </script>
+</body>
+
+</html>
