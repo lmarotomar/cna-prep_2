@@ -1205,7 +1205,7 @@ const allBatteries = [
                 options_es: ["Tosan en sus manos", "Tosan en su codo o en un pañuelo", "Tosan de frente a otras personas", "No respiren"],
                 correct: 1,
                 reason_en: "Coughing into the elbow prevents hand contamination.",
-                text_es: "Toser en el codo evita la contaminación de las manos."
+                reason_es: "Toser en el codo evita la contaminación de las manos."
             }
         ]
     },
