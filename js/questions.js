@@ -3898,5 +3898,215 @@ const allBatteries = [
                 reason_es: "Mantener la calidad de vida y el respeto es el corazón del trabajo del auxiliar de enfermería."
             }
         ]
+    },
+    {
+        name: "Simulacro Estratégico 7 - Áreas NNAAP Críticas",
+        questions: [
+            // --- INDEPENDENCE & RESTORATIVE SERVICES (10) ---
+
+            // 1. Restorative Care - Goal
+            {
+                text_en: "The primary goal of restorative nursing care is to:",
+                text_es: "El objetivo principal del cuidado de enfermería restaurativo es:",
+                options_en: ["Cure the resident's illness", "Help the resident regain or maintain the highest possible level of function and independence", "Keep the resident in bed to prevent falls", "Reduce the workload of the nursing staff"],
+                options_es: ["Curar la enfermedad del residente", "Ayudar al residente a recuperar o mantener el mayor nivel posible de función e independencia", "Mantener al residente en cama para prevenir caídas", "Reducir la carga de trabajo del personal de enfermería"],
+                correct: 1,
+                reason_en: "Restorative care focuses on maximizing independence and quality of life, not curing disease.",
+                reason_es: "El cuidado restaurativo se centra en maximizar la independencia y calidad de vida, no en curar enfermedades."
+            },
+            // 2. Restorative Care - CNA Role
+            {
+                text_en: "When a resident can perform part of their own personal care, the CNA should:",
+                text_es: "Cuando un residente puede realizar parte de su propio cuidado personal, el CNA debe:",
+                options_en: ["Do everything for them to save time", "Encourage and allow them to do as much as they safely can", "Ask the nurse to take over", "Document that the resident refused care"],
+                options_es: ["Hacerlo todo por ellos para ahorrar tiempo", "Animarlos y permitirles hacer todo lo que puedan de forma segura", "Pedirle a la enfermera que tome el control", "Documentar que el residente rechazó el cuidado"],
+                correct: 1,
+                reason_en: "Promoting self-care preserves dignity, maintains function, and is the foundation of restorative care.",
+                reason_es: "Promover el autocuidado preserva la dignidad, mantiene la función y es la base del cuidado restaurativo."
+            },
+            // 3. Restorative Care - Bowel/Bladder Retraining
+            {
+                text_en: "A bowel and bladder retraining program is most effective when:",
+                text_es: "Un programa de reentrenamiento intestinal y vesical es más efectivo cuando:",
+                options_en: ["It is applied only at night", "The CNA follows a consistent, scheduled toileting routine", "The resident uses a diaper at all times", "The resident drinks as little fluid as possible"],
+                options_es: ["Se aplica solo de noche", "El CNA sigue una rutina de ir al baño constante y programada", "El residente usa pañal en todo momento", "El residente bebe la menor cantidad de líquido posible"],
+                correct: 1,
+                reason_en: "Scheduled toileting reinforces normal patterns and reduces incontinence episodes.",
+                reason_es: "El uso programado del baño refuerza los patrones normales y reduce los episodios de incontinencia."
+            },
+            // 4. Restorative Care - Assistive Devices
+            {
+                text_en: "A resident uses a walker for ambulation. The CNA's role is to:",
+                text_es: "Un residente usa un andador para caminar. El papel del CNA es:",
+                options_en: ["Carry the walker and let the resident lean on the CNA instead", "Ensure the walker is the correct height and the resident uses it properly on each walk", "Remove the walker once the resident can take 5 steps alone", "Avoid walks to prevent falls"],
+                options_es: ["Cargar el andador y dejar que el residente se apoye en el CNA", "Asegurarse de que el andador tenga la altura correcta y que el residente lo use correctamente en cada caminata", "Retirar el andador una vez que el residente pueda dar 5 pasos solo", "Evitar las caminatas para prevenir caídas"],
+                correct: 1,
+                reason_en: "Consistent, correct use of assistive devices promotes safe independence and prevents injury.",
+                reason_es: "El uso correcto y constante de los dispositivos de ayuda promueve la independencia segura y previene lesiones."
+            },
+            // 5. Restorative Care - Adaptive Equipment (Eating)
+            {
+                text_en: "A resident with limited hand strength is given a built-up handled spoon. This is an example of:",
+                text_es: "A un residente con fuerza limitada en la mano se le da una cuchara con mango engrosado. Esto es un ejemplo de:",
+                options_en: ["A restraint device", "Adaptive equipment used to promote self-feeding independence", "A punishment for not eating", "Equipment only the nurse can provide"],
+                options_es: ["Un dispositivo de sujeción", "Equipo adaptativo para promover la independencia en la alimentación", "Un castigo por no comer", "Equipo que solo la enfermera puede proporcionar"],
+                correct: 1,
+                reason_en: "Adaptive equipment compensates for physical limitations and helps residents remain independent in daily activities.",
+                reason_es: "El equipo adaptativo compensa las limitaciones físicas y ayuda a los residentes a mantenerse independientes en las actividades diarias."
+            },
+            // 6. Restorative Care - AROM vs PROM
+            {
+                text_en: "Active Range of Motion (AROM) exercises differ from Passive Range of Motion (PROM) in that:",
+                text_es: "Los ejercicios de Rango de Movimiento Activo (AROM) difieren del Rango de Movimiento Pasivo (PROM) en que:",
+                options_en: ["AROM is done by the CNA moving the resident's limbs", "AROM is performed by the resident using their own muscle strength", "PROM is only performed by physical therapists", "There is no difference between AROM and PROM"],
+                options_es: ["El AROM lo realiza el CNA moviendo las extremidades del residente", "El AROM lo realiza el residente usando su propia fuerza muscular", "El PROM solo lo realizan los fisioterapeutas", "No hay diferencia entre AROM y PROM"],
+                correct: 1,
+                reason_en: "AROM strengthens muscles; PROM (done by the CNA) maintains joint mobility when the resident cannot move independently.",
+                reason_es: "El AROM fortalece los músculos; el PROM (realizado por el CNA) mantiene la movilidad articular cuando el residente no puede moverse de forma independiente."
+            },
+            // 7. Restorative Care - Contracture Prevention
+            {
+                text_en: "To prevent foot drop contractures in a bedridden resident, the CNA should:",
+                text_es: "Para prevenir las contracturas en caída de pie en un residente en cama, el CNA debe:",
+                options_en: ["Keep the feet hanging freely off the bed", "Use a foot board or positioning devices to keep the feet in proper alignment", "Tuck the feet tightly under the blankets", "Avoid touching the feet during care"],
+                options_es: ["Dejar que los pies cuelguen libremente de la cama", "Usar un tablero de pies o dispositivos de posicionamiento para mantener los pies en alineación correcta", "Meter los pies bien apretados bajo las mantas", "Evitar tocar los pies durante el cuidado"],
+                correct: 1,
+                reason_en: "Proper foot alignment prevents foot drop, a permanent contracture caused by prolonged plantar flexion.",
+                reason_es: "La alineación correcta del pie previene el pie caído, una contractura permanente causada por la flexión plantar prolongada."
+            },
+            // 8. Restorative Care - Rehabilitation Team
+            {
+                text_en: "Which member of the rehabilitation team is primarily responsible for improving a resident's ability to perform Activities of Daily Living (ADLs)?",
+                text_es: "¿Qué miembro del equipo de rehabilitación es el principal responsable de mejorar la capacidad de un residente para realizar las Actividades de la Vida Diaria (AVD)?",
+                options_en: ["Physical Therapist (PT)", "Speech-Language Pathologist (SLP)", "Occupational Therapist (OT)", "Recreational Therapist"],
+                options_es: ["Fisioterapeuta (PT)", "Patólogo del Habla y el Lenguaje (SLP)", "Terapeuta Ocupacional (OT)", "Terapeuta Recreativo"],
+                correct: 2,
+                reason_en: "Occupational Therapists specialize in helping residents regain independence in daily living activities.",
+                reason_es: "Los Terapeutas Ocupacionales se especializan en ayudar a los residentes a recuperar la independencia en las actividades de la vida diaria."
+            },
+            // 9. Restorative Care - Ambulation Safety
+            {
+                text_en: "When assisting a resident with restorative ambulation, the CNA should walk:",
+                text_es: "Al asistir a un residente con la deambulación restaurativa, el CNA debe caminar:",
+                options_en: ["Ahead of the resident to clear the path", "Behind the resident at a distance", "Slightly behind and to the weaker side of the resident", "On the stronger side of the resident only"],
+                options_es: ["Delante del residente para despejar el camino", "Detrás del residente a cierta distancia", "Ligeramente detrás y hacia el lado más débil del residente", "Solo en el lado más fuerte del residente"],
+                correct: 2,
+                reason_en: "Walking beside the weaker side allows the CNA to provide quick support if the resident loses balance.",
+                reason_es: "Caminar junto al lado más débil permite al CNA proporcionar apoyo rápido si el residente pierde el equilibrio."
+            },
+            // 10. Restorative Care - Splint Care
+            {
+                text_en: "A resident wears a hand splint to prevent contractures. The CNA should:",
+                text_es: "Un residente usa una férula de mano para prevenir contracturas. El CNA debe:",
+                options_en: ["Leave the splint on 24 hours a day without removing it", "Remove the splint, perform ROM exercises, check the skin, then reapply as per care plan", "Only the nurse can touch or adjust the splint", "Remove the splint permanently if the resident complains of discomfort"],
+                options_es: ["Dejar la férula puesta las 24 horas sin quitarla", "Retirar la férula, realizar ejercicios de ROM, revisar la piel y volver a colocarla según el plan de cuidado", "Solo la enfermera puede tocar o ajustar la férula", "Retirar la férula permanentemente si el residente se queja de incomodidad"],
+                correct: 1,
+                reason_en: "Splints must be removed periodically per the care plan to allow skin inspection and ROM exercises.",
+                reason_es: "Las férulas deben retirarse periódicamente según el plan de cuidado para permitir la inspección de la piel y los ejercicios de ROM."
+            },
+
+            // --- MEMBER OF THE HEALTH CARE TEAM (10) ---
+
+            // 11. Healthcare Team - Chain of Command
+            {
+                text_en: "A CNA notices that a resident's skin has a new area of redness over a bony prominence. The correct action is to:",
+                text_es: "Un CNA nota que la piel de un residente tiene una nueva área de enrojecimiento sobre una prominencia ósea. La acción correcta es:",
+                options_en: ["Apply lotion and document it later", "Report the finding to the charge nurse immediately", "Wait until the next shift to see if it improves", "Ask the resident if it bothers them and proceed with care"],
+                options_es: ["Aplicar loción y documentarlo más tarde", "Informar el hallazgo a la enfermera responsable de inmediato", "Esperar hasta el siguiente turno para ver si mejora", "Preguntarle al residente si le molesta y continuar con el cuidado"],
+                correct: 1,
+                reason_en: "New skin breakdown is a reportable finding; early intervention by the nurse prevents pressure ulcers.",
+                reason_es: "La nueva lesión cutánea es un hallazgo que debe reportarse; la intervención temprana de la enfermera previene las úlceras por presión."
+            },
+            // 12. Healthcare Team - Scope of Practice
+            {
+                text_en: "A family member asks the CNA to explain the purpose of their loved one's new medication. The CNA should:",
+                text_es: "Un familiar le pide al CNA que explique el propósito del nuevo medicamento de su ser querido. El CNA debe:",
+                options_en: ["Explain what they know about the medication", "Read the medication label to the family member", "Tell them that explaining medications is outside the CNA's scope of practice and direct them to the nurse", "Look it up online and share the information"],
+                options_es: ["Explicar lo que saben sobre el medicamento", "Leerle la etiqueta del medicamento al familiar", "Decirles que explicar medicamentos está fuera del alcance del CNA y dirigirlos a la enfermera", "Buscarlo en internet y compartir la información"],
+                correct: 2,
+                reason_en: "Medication education is within the nurse's scope of practice, not the CNA's.",
+                reason_es: "La educación sobre medicamentos es parte del alcance de la enfermera, no del CNA."
+            },
+            // 13. Healthcare Team - Objective vs. Subjective
+            {
+                text_en: "Which of the following is an example of objective documentation?",
+                text_es: "¿Cuál de los siguientes es un ejemplo de documentación objetiva?",
+                options_en: ["'The resident seems sad today'", "'Resident appears to be in pain'", "'Resident refused breakfast and stated: I am not hungry'"  , "'The resident looked uncomfortable during repositioning'"],
+                options_es: ["'El residente parece triste hoy'", "'El residente parece estar con dolor'", "'El residente rechazó el desayuno y dijo: No tengo hambre'", "'El residente parecía incómodo durante el reposicionamiento'"],
+                correct: 2,
+                reason_en: "Objective documentation records observable, measurable facts and direct quotes — not interpretations.",
+                reason_es: "La documentación objetiva registra hechos observables y medibles y citas directas, no interpretaciones."
+            },
+            // 14. Healthcare Team - Change of Shift Report
+            {
+                text_en: "During a change-of-shift report, the CNA should communicate:",
+                text_es: "Durante el reporte de cambio de turno, el CNA debe comunicar:",
+                options_en: ["Only positive things about the resident's day", "Any significant changes in the resident's condition, behavior, intake, or output observed during the shift", "Personal opinions about the resident's family", "Only information the nurse specifically asks for"],
+                options_es: ["Solo cosas positivas del día del residente", "Cualquier cambio significativo en la condición, comportamiento, ingesta o excreción del residente observado durante el turno", "Opiniones personales sobre la familia del residente", "Solo la información que la enfermera solicite específicamente"],
+                correct: 1,
+                reason_en: "Accurate handoff communication ensures continuity of care and patient safety.",
+                reason_es: "La comunicación precisa en el cambio de turno garantiza la continuidad del cuidado y la seguridad del paciente."
+            },
+            // 15. Healthcare Team - Delegation
+            {
+                text_en: "A nurse delegates a task to a CNA. The CNA realizes they have never performed this task before. The CNA should:",
+                text_es: "Una enfermera delega una tarea a un CNA. El CNA se da cuenta de que nunca ha realizado esta tarea antes. El CNA debe:",
+                options_en: ["Perform the task anyway to avoid conflict", "Refuse all delegated tasks from now on", "Inform the nurse that they are not trained or competent in this task before proceeding", "Ask another CNA to do it without telling the nurse"],
+                options_es: ["Realizar la tarea de todas formas para evitar conflictos", "Rechazar todas las tareas delegadas de ahora en adelante", "Informar a la enfermera que no está entrenado ni es competente en esta tarea antes de proceder", "Pedirle a otro CNA que lo haga sin decirle a la enfermera"],
+                correct: 2,
+                reason_en: "A CNA must only perform tasks within their competence; disclosing limitations ensures resident safety.",
+                reason_es: "Un CNA solo debe realizar tareas dentro de su competencia; revelar las limitaciones garantiza la seguridad del residente."
+            },
+            // 16. Healthcare Team - Interdisciplinary Team
+            {
+                text_en: "Which healthcare professional is primarily responsible for assessing and treating a resident's swallowing difficulties?",
+                text_es: "¿Qué profesional de la salud es el principal responsable de evaluar y tratar las dificultades de deglución de un residente?",
+                options_en: ["Registered Nurse (RN)", "Physical Therapist (PT)", "Speech-Language Pathologist (SLP)", "Dietitian"],
+                options_es: ["Enfermera Registrada (RN)", "Fisioterapeuta (PT)", "Patólogo del Habla y el Lenguaje (SLP)", "Dietista"],
+                correct: 2,
+                reason_en: "Speech-Language Pathologists specialize in dysphagia (swallowing disorders) assessment and treatment.",
+                reason_es: "Los Patólogos del Habla y el Lenguaje se especializan en la evaluación y tratamiento de la disfagia (trastornos de la deglución)."
+            },
+            // 17. Healthcare Team - Care Plan
+            {
+                text_en: "The care plan is best described as:",
+                text_es: "El plan de cuidado se describe mejor como:",
+                options_en: ["A document only nurses need to read", "A written guide developed by the healthcare team that outlines individualized goals and interventions for the resident", "A list of the resident's medications", "A form completed only at admission"],
+                options_es: ["Un documento que solo las enfermeras necesitan leer", "Una guía escrita desarrollada por el equipo de salud que describe metas e intervenciones individualizadas para el residente", "Una lista de los medicamentos del residente", "Un formulario completado solo en la admisión"],
+                correct: 1,
+                reason_en: "The care plan is a living document guiding all team members in providing consistent, individualized care.",
+                reason_es: "El plan de cuidado es un documento vivo que guía a todos los miembros del equipo en la prestación de un cuidado consistente e individualizado."
+            },
+            // 18. Healthcare Team - Prioritization
+            {
+                text_en: "A CNA has multiple tasks to complete. Which situation should be addressed FIRST?",
+                text_es: "Un CNA tiene múltiples tareas por completar. ¿Qué situación debe atenderse PRIMERO?",
+                options_en: ["A resident requesting extra blankets", "A resident whose call light has been on for 2 minutes", "A resident making gurgling sounds and appearing to have difficulty breathing", "A resident who needs a bath scheduled for this shift"],
+                options_es: ["Un residente que pide más mantas", "Un residente cuya luz de llamada lleva 2 minutos encendida", "Un residente que hace sonidos de gorgoteo y parece tener dificultad para respirar", "Un residente que necesita un baño programado para este turno"],
+                correct: 2,
+                reason_en: "Breathing difficulty is a life-threatening emergency and always takes priority over non-urgent tasks.",
+                reason_es: "La dificultad respiratoria es una emergencia potencialmente mortal y siempre tiene prioridad sobre las tareas no urgentes."
+            },
+            // 19. Healthcare Team - Observation and Reporting
+            {
+                text_en: "Which of the following changes in a resident should the CNA report to the nurse IMMEDIATELY?",
+                text_es: "¿Cuál de los siguientes cambios en un residente debe el CNA reportar a la enfermera DE INMEDIATO?",
+                options_en: ["The resident drank less water than usual", "The resident requested a different flavor of juice", "The resident is suddenly confused, has slurred speech, and one arm is weak", "The resident slept one extra hour during afternoon rest"],
+                options_es: ["El residente bebió menos agua de lo habitual", "El residente pidió un sabor diferente de jugo", "El residente está repentinamente confundido, con habla arrastrada y un brazo débil", "El residente durmió una hora extra durante el descanso de la tarde"],
+                correct: 2,
+                reason_en: "Sudden confusion, slurred speech, and one-sided weakness are signs of a stroke (CVA) — a medical emergency.",
+                reason_es: "La confusión repentina, el habla arrastrada y la debilidad unilateral son signos de un accidente cerebrovascular (ACV), una emergencia médica."
+            },
+            // 20. Healthcare Team - CNA as Team Member
+            {
+                text_en: "A CNA disagrees with how a nurse handled a resident situation. The most professional action is to:",
+                text_es: "Un CNA no está de acuerdo con cómo una enfermera manejó una situación con un residente. La acción más profesional es:",
+                options_en: ["Complain to other CNAs at the nursing station", "Confront the nurse loudly in front of the resident", "Discuss the concern privately with the nurse or, if unresolved, follow the facility's chain of command", "Ignore it and do nothing"],
+                options_es: ["Quejarse con otros CNAs en el puesto de enfermería", "Confrontar a la enfermera en voz alta frente al residente", "Hablar del problema en privado con la enfermera o, si no se resuelve, seguir la cadena de mando de la institución", "Ignorarlo y no hacer nada"],
+                correct: 2,
+                reason_en: "Professional conflict resolution respects all parties, protects the resident, and follows established facility protocol.",
+                reason_es: "La resolución profesional de conflictos respeta a todas las partes, protege al residente y sigue el protocolo establecido de la institución."
+            }
+        ]
     }
 ];
