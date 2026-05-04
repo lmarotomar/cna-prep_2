@@ -1,172 +1,195 @@
 <!DOCTYPE html>
-<html lang="es">
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CNA Exam ProMaster | Simulador Profesional</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CNA ProMaster — Access</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: linear-gradient(135deg, #0f766e 0%, #1e40af 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 48px 40px;
+  max-width: 440px;
+  width: 100%;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+  text-align: center;
+}
+.logo { font-size: 42px; margin-bottom: 12px; }
+h1 {
+  font-size: 26px;
+  font-weight: 800;
+  color: #1e293b;
+  margin-bottom: 4px;
+}
+.subtitle {
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 32px;
+  font-style: italic;
+}
+label {
+  display: block;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 8px;
+}
+input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 15px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-family: 'Courier New', monospace;
+  font-weight: 700;
+  color: #1e293b;
+  text-align: center;
+  outline: none;
+  transition: border-color 0.2s;
+}
+input:focus { border-color: #0f766e; }
+input.error { border-color: #ef4444; background: #fef2f2; }
+input.success { border-color: #10b981; background: #f0fdf4; }
+.error-msg {
+  color: #ef4444;
+  font-size: 13px;
+  margin-top: 8px;
+  display: none;
+}
+.btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #0f766e, #0d9488);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: opacity 0.2s, transform 0.1s;
+  font-family: inherit;
+}
+.btn:hover { opacity: 0.92; transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+.footer {
+  margin-top: 24px;
+  font-size: 11px;
+  color: #94a3b8;
+  line-height: 1.6;
+}
+.spinner {
+  display: none;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255,255,255,0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+</style>
 </head>
-
 <body>
-    <div class="container fade-in">
-        <header>
-            <div style="display: flex; justify-content: flex-end; margin-bottom: 1rem;" id="lang-selector-container">
-                <!-- Lang Selector will be injected by script -->
-            </div>
-            <h1 class="title-main">CNA Exam <span style="color: var(--primary)">ProMaster</span></h1>
-            <p class="subtitle">Simulador de Certificación ProMetric - Nivel de Dificultad: Experto</p>
-        </header>
+<div class="card">
+  <div class="logo">🏥</div>
+  <h1>CNA ProMaster</h1>
+  <p class="subtitle">Practice App · App de Práctica</p>
 
-        <section class="info-band"
-            style="background: #eff6ff; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border: 1px solid #dbeafe;">
-            <p><strong>Meta:</strong> 80% o más para aprobar (Estilo ProMetric). <br>
-                416 preguntas bilingües distribuidas en 7 simulacros — 6 mixtos + 1 estratégico NNAAP.</p>
-        </section>
+  <label for="code">Enter your access code / Ingresa tu código de acceso</label>
+  <input
+    type="text"
+    id="code"
+    placeholder="CNA-XXXXX-XXXXX"
+    maxlength="15"
+    autocomplete="off"
+    autocorrect="off"
+    autocapitalize="characters"
+    spellcheck="false"
+  />
+  <div class="error-msg" id="error-msg">
+    ❌ Invalid code. Please check and try again. / Código inválido. Verifica e intenta de nuevo.
+  </div>
 
-        <div class="battery-grid" id="battery-list">
-            <!-- Battery 1 -->
-            <div class="battery-card" onclick="startExam(0)">
-                <div class="battery-icon">🏥</div>
-                <h3>Simulacro Mixto 1</h3>
-                <p>Evaluación general: Higiene, seguridad y signos vitales.</p>
-                <div class="battery-stats">
-                    <span>60 Preguntas</span>
-                    <span id="score-0">--%</span>
-                </div>
-            </div>
+  <button class="btn" onclick="verify()" id="btn">
+    Access App / Acceder a la App →
+  </button>
 
-            <!-- Battery 2 -->
-            <div class="battery-card" onclick="startExam(1)">
-                <div class="battery-icon">🫀</div>
-                <h3>Simulacro Mixto 2</h3>
-                <p>Contenido variado: Emergencias, infecciones y ética.</p>
-                <div class="battery-stats">
-                    <span>60 Preguntas</span>
-                    <span id="score-1">--%</span>
-                </div>
-            </div>
+  <div class="footer">
+    Your access code was delivered to your email after purchase.<br>
+    Tu código fue enviado a tu correo después de la compra.<br><br>
+    Need help? · ¿Necesitas ayuda?<br>
+    <strong>lmarotomar@mardigitalhub.com</strong>
+  </div>
+</div>
 
-            <!-- Battery 3 -->
-            <div class="battery-card" onclick="startExam(2)">
-                <div class="battery-icon">👵</div>
-                <h3>Simulacro Mixto 3</h3>
-                <p>Repaso integral: Geriatría, movilidad y derechos.</p>
-                <div class="battery-stats">
-                    <span>60 Preguntas</span>
-                    <span id="score-2">--%</span>
-                </div>
-            </div>
+<script>
+const HASHES = ["b002bb4d2c73dc84", "e1bc74b813dfafb5", "a5533aa4e0bfc078", "455091f5310f1346", "2d5ae8b3d0c2749f", "e222d22b88714a9b", "3de6cb3896ef5bbd", "fee60bb03b0bf289", "33b5c82b4538afbc", "7e226420dc64963a", "013c5225b9e04360", "2178a988c10d6089", "b2f353633eea21f2", "6c2d5bc44b5025bf", "9cd57716ed1a9c9c", "4fef93bd066e5152", "05972687e3198d3d", "77e052417fb745b9", "6c56b72e93621745", "13668a3fd0de1def", "08b09ae00a14a0b8", "36999f6bef80cf7c", "965dae73bc3ab9b8", "313c4b2b0bbf0b35", "c19eb2a200435c2e", "7746cdcb30f999a1", "666adad40589da31", "4cfabe9f00d16f4f", "d50bd7ad9274572a", "1116a416a89666bb", "83e057fe2c3d5fa9", "2c9d09ce89c0015c", "4817a12fead6a739", "71e2a08a17055670", "3476f97ef6d67c09", "98f8868b5123446b", "e6867bfedf1f0d47", "fcfa87ef0d519b0a", "4edc6e27db2069da", "7d3d9ea8c7817205", "6e1d7a287df3d9b9", "a897dd83bb0dd3c3", "7ff118ee04d89bd3", "c52e39ee8b69c81a", "47fc3d846270da9c", "ad835d8a3ae2e623", "bf82e1c588bd9505", "1c0859c9d0b3c864", "c765ad00b9b00a6b", "a4a4fdd8cba5f0a4", "43079d307fde256c", "993c766f87e6cb00", "f790a8b4fd0dea97", "f4e9ff11029039f1", "930b97a738db2ccb", "1d58a2e3e81d4751", "27a96d40262f4e26", "7c8ac02d5085f356", "52a7b0ca357b59a7", "f9f698431cdd2ecd", "771018d72c99a356", "a866e458f4beed08", "0ff5d43f9acbb64a", "04d82e98766d5cca", "b63002a6b12fad69", "019cf4b7518aefc5", "3a967396d313b6e9", "f158c1181242debc", "9b8e3775969c04f4", "048f0a6d5cee2e3a", "cf8f1dc5852b1ed1", "58dc660a3e38e323", "c842f351a83efbab", "42382453d636d25f", "f154b268292043b9", "94bff151ffd2ba52", "32e42aa020d650bc", "757b592cbbb59ffe", "fc1781a247c67b68", "d3aa96ce1f85f9ad", "7476bd9e4467628d", "c2cc77581e5843b2", "97f31084a795782f", "bcc8280409bde7d1", "ec98b7851e220728", "065d40509c2da1f7", "6a19a42c45647091", "dc785a42700cfa58", "2d7f67fbd632de51", "c8cb271a2439f6cf", "f9f8e97ccf8c54ac", "d32cfc349896faf6", "52be9e0dfaa8542b", "fd243e6b0c165bfa", "84654b0afe1ec7af", "75e735cec3ca7a9a", "8b05707216712001", "48dfed976e0bd00a", "86cd6d58233f696c", "2abe8f3f0b2b464f", "aaf94c1583e101f9", "6149f14343ae93f2", "9734cdd6bd513427", "ca4f4016e5fec717", "0edcda6d1446ec8c", "88b8c262f7dbdec9", "65fef67e035a53fa", "7948c3237a468fb3", "4c037a06b4d3a214", "b402d33a3b5a352c", "62e9c580ca5b0e3b", "98c6e1188cb89353", "5b3451c5029af777", "fda5c216b5143884", "80455667087cad65", "92beccbe8b048a91", "60b49bcfed718582", "1e154ba142ad467d", "82cb585080de0574", "683737c3c8f17153", "9e10b14124822156", "0dab7fbc5f217ebc", "226cf5fc781a1e94", "2ef2948fd6975fb3", "326824bca4b25175", "78de58e981435151", "2bb140ccecd5085d", "cd6804ff8b7030f1", "8eb9ee4e2b1692cd", "0bf9abd1631ddb12", "ada68d74a4b855cd", "1f131c8b705f7032", "47794e6e3813924c", "e7a7a1f3267ebe4f", "64c198c252dfdd5e", "52ff3f7c25037ed6", "55db2820989f0caf", "907c746b40e51a94", "4a7754c6a1671e04", "d34618ba9c78f30d", "86e003442b5c46f4", "d6c59d1935ce68a4", "a7a696657414947d", "5d67e1b84a6e5a96", "54dbcc404b6c4eda", "b9c879bf7f6a2ac7", "e279f6260e8825bf", "369a0afd00034d33", "3efec91c9b2113d7", "b9607fb78dcf880a", "b87a73725b8b647d", "1e0cf662407555f1", "2dba72d07cadd708", "2478d4ad54149f46", "a087503b3b1a0596", "6b9fc3780d90f93d", "cba007ef8dd8016c", "aa75f8d3cfa53ac8", "6d08fbc18013ebd6", "73760180b891c08a", "943a9bdf38c721cc", "5ce3c049a4fe76cc", "22f9d85b6dcf96df", "3d136852a1b4b0c7", "6c2814277912fd50", "c3f425d2245e678f", "a042b5c4390c366a", "6766cb2f9460eef3", "5905fe4e4e24db62", "2c511f93c3308fbb", "d374a77e5210f4ec", "fc55f56c16d2aa5f", "3ecc9c76b2b7bc6b", "a163d9c01fe3d7bb", "473cd20701bcc489", "0d62a7b499e37daf", "2236c97c84b46dea", "3892fe09a35f5803", "b8a05b3651994abd", "221f2948368bba2e", "99f7fbe3a4516279", "1130a8a58e84fe77", "1c6097d5fbad210a", "a716a1b0c8414ac7", "627f76eb3971f961", "974514cb6b7ce927", "c7ddbac581b20865", "a07ba842fafae8f9", "9fc45f55e0eda562", "54681967d0979911", "0ad72a52279c4f4b", "67b05b63d686f7f1", "2c49069928bbfc07", "22f43120c6f8a0fa", "c9421e80478b9e19", "5b55b302e0d246ba", "e9e164c72b41240a", "4ddaadd54be10796", "7d4b575bb0157943", "122c758751ae89b6"];
 
-            <!-- Battery 4 -->
-            <div class="battery-card" onclick="startExam(3)">
-                <div class="battery-icon">🧘</div>
-                <h3>Simulacro Mixto 4</h3>
-                <p>Mezcla de temas: Salud mental, nutrición y leyes.</p>
-                <div class="battery-stats">
-                    <span>60 Preguntas</span>
-                    <span id="score-3">--%</span>
-                </div>
-            </div>
+async function sha256(str) {
+  const buf = await crypto.subtle.digest('SHA-256',
+    new TextEncoder().encode(str));
+  return Array.from(new Uint8Array(buf))
+    .map(b => b.toString(16).padStart(2,'0'))
+    .join('').slice(0,16);
+}
 
-            <!-- Battery 5 -->
-            <div class="battery-card" onclick="startExam(4)">
-                <div class="battery-icon">📜</div>
-                <h3>Simulacro Mixto 5</h3>
-                <p>Evaluación cruzada: Protocolos legales y cuidados básicos.</p>
-                <div class="battery-stats">
-                    <span>60 Preguntas</span>
-                    <span id="score-4">--%</span>
-                </div>
-            </div>
+document.getElementById('code').addEventListener('keydown', e => {
+  if (e.key === 'Enter') verify();
+});
 
-            <!-- Battery 6 -->
-            <div class="battery-card" onclick="startExam(5)">
-                <div class="battery-icon">🎓</div>
-                <h3>Simulacro Mixto 6 (Final)</h3>
-                <p>Examen de repaso total con todos los dominios ProMetric.</p>
-                <div class="battery-stats">
-                    <span>60 Preguntas</span>
-                    <span id="score-5">--%</span>
-                </div>
-            </div>
+document.getElementById('code').addEventListener('input', e => {
+  e.target.classList.remove('error','success');
+  document.getElementById('error-msg').style.display = 'none';
+  // Auto-format: add dashes
+  let v = e.target.value.replace(/[^A-Z0-9]/gi,'').toUpperCase();
+  if (v.length > 3) v = v.slice(0,3) + '-' + v.slice(3);
+  if (v.length > 9) v = v.slice(0,9) + '-' + v.slice(9);
+  e.target.value = v.slice(0,15);
+});
 
-            <!-- Battery 7 -->
-            <div class="battery-card" onclick="startExam(6)" style="border: 2px solid var(--primary);">
-                <div class="battery-icon">🎯</div>
-                <h3>Simulacro Estratégico 7</h3>
-                <p>Áreas críticas NNAAP: Cuidado Restaurativo y Equipo de Salud.</p>
-                <div class="battery-stats">
-                    <span>20 Preguntas</span>
-                    <span id="score-6">--%</span>
-                </div>
-            </div>
-        </div>
-    </div>
+async function verify() {
+  const raw = document.getElementById('code').value.trim().toUpperCase();
+  const btn = document.getElementById('btn');
+  btn.innerHTML = '<div class="spinner" style="display:block"></div>';
+  btn.disabled = true;
 
-    <script>
-        let currentLang = localStorage.getItem('cna_lang') || 'en';
+  const hash = await sha256(raw);
 
-        function startExam(id) {
-            localStorage.setItem('selectedBattery', id);
-            window.location.href = 'exam.html';
-        }
+  if (HASHES.includes(hash)) {
+    document.getElementById('code').classList.add('success');
+    // Store in session so they don't have to re-enter
+    sessionStorage.setItem('cna_access', '1');
+    btn.innerHTML = '✓ Access Granted — Loading...';
+    setTimeout(() => {
+      window.location.href = './app.html';
+    }, 800);
+  } else {
+    document.getElementById('code').classList.add('error');
+    document.getElementById('error-msg').style.display = 'block';
+    btn.innerHTML = 'Access App / Acceder a la App →';
+    btn.disabled = false;
+  }
+}
 
-        function setupLangSelector() {
-            const container = document.getElementById('lang-selector-container');
-            container.innerHTML = '';
-
-            const langs = [
-                { id: 'en', label: 'EN' },
-                { id: 'es', label: 'ES' },
-                { id: 'bi', label: 'Bi' }
-            ];
-
-            langs.forEach(l => {
-                const btn = document.createElement('button');
-                btn.textContent = l.label;
-                btn.className = `btn btn-sm ${currentLang === l.id ? 'btn-primary' : 'btn-outline'}`;
-                btn.style = 'padding: 4px 12px; font-size: 0.8rem; margin-left: 5px;';
-                if (currentLang === l.id) {
-                    btn.style.background = 'var(--primary)';
-                    btn.style.color = 'white';
-                }
-
-                btn.onclick = () => {
-                    currentLang = l.id;
-                    localStorage.setItem('cna_lang', l.id);
-                    setupLangSelector();
-                    updateUIStrings();
-                };
-                container.appendChild(btn);
-            });
-        }
-
-        function updateUIStrings() {
-            const title = document.querySelector('.title-main');
-            const subtitle = document.querySelector('.subtitle');
-
-            if (currentLang === 'es' || currentLang === 'bi') {
-                subtitle.textContent = 'Simulador de Certificación ProMetric - Nivel de Dificultad: Experto';
-            } else {
-                subtitle.textContent = 'ProMetric Certification Simulator - Difficulty Level: Expert';
-            }
-        }
-
-        // Load scores from localStorage
-        window.onload = () => {
-            setupLangSelector();
-            updateUIStrings();
-            const scores = JSON.parse(localStorage.getItem('cna_scores') || '{}');
-            Object.keys(scores).forEach(id => {
-                const el = document.getElementById(`score-${id}`);
-                if (el) el.textContent = scores[id] + '%';
-            });
-        };
-    </script>
+// If already verified this session, skip gate
+if (sessionStorage.getItem('cna_access') === '1') {
+  window.location.href = './app.html';
+}
+</script>
 </body>
-
 </html>
